@@ -24,14 +24,13 @@ module mojo_top (
     // The reset conditioner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
     reset_conditioner reset_cond;
-    .rst(rst){
       counter slowclock(#SIZE(1),#DIV(24));    // Modify DIV value to change the clock frequency
-    }
   }
   
   always {
     reset_cond.in = ~rst_n; // input raw inverted reset signal
     rst = reset_cond.out;   // conditioned reset
+    slowclock.rst=rst;
     
     led = 8h00;             // turn LEDs off
     spi_miso = bz;          // not using SPI
