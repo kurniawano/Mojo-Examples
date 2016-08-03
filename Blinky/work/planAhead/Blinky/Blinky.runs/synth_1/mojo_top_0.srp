@@ -1,0 +1,394 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> Reading design: mojo_top_0.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "mojo_top_0.prj"
+
+---- Target Parameters
+Target Device                      : xc6slx9tqg144-2
+Output File Name                   : "mojo_top_0.ngc"
+
+---- Source Options
+Top Module Name                    : mojo_top_0
+
+---- General Options
+Optimization Goal                  : speed
+Optimization Effort                : 1
+Netlist Hierarchy                  : rebuilt
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:/Users/TABLET0006/Box Sync/SUTD/ComputationStructures/Mojo/Mojo-Examples/Blinky/work/planAhead/Blinky/Blinky.srcs/sources_1/imports/verilog/reset_conditioner_1.v" into library work
+Parsing module <reset_conditioner_1>.
+Analyzing Verilog file "C:/Users/TABLET0006/Box Sync/SUTD/ComputationStructures/Mojo/Mojo-Examples/Blinky/work/planAhead/Blinky/Blinky.srcs/sources_1/imports/verilog/counter_2.v" into library work
+Parsing module <counter_2>.
+Analyzing Verilog file "C:/Users/TABLET0006/Box Sync/SUTD/ComputationStructures/Mojo/Mojo-Examples/Blinky/work/planAhead/Blinky/Blinky.srcs/sources_1/imports/verilog/mojo_top_0.v" into library work
+Parsing module <mojo_top_0>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <mojo_top_0>.
+
+Elaborating module <reset_conditioner_1>.
+
+Elaborating module <counter_2>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <mojo_top_0>.
+    Related source file is "C:/Users/TABLET0006/Box Sync/SUTD/ComputationStructures/Mojo/Mojo-Examples/Blinky/work/planAhead/Blinky/Blinky.srcs/sources_1/imports/verilog/mojo_top_0.v".
+WARNING:Xst:647 - Input <io_button> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <io_dip> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <cclk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <spi_ss> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <spi_mosi> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <spi_sck> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <avr_tx> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <avr_rx_busy> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit tristate buffer for signal <spi_miso> created at line 45
+    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 45
+    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 45
+    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 45
+    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 45
+    Found 1-bit tristate buffer for signal <avr_rx> created at line 45
+    Summary:
+	inferred   6 Tristate(s).
+Unit <mojo_top_0> synthesized.
+
+Synthesizing Unit <reset_conditioner_1>.
+    Related source file is "C:/Users/TABLET0006/Box Sync/SUTD/ComputationStructures/Mojo/Mojo-Examples/Blinky/work/planAhead/Blinky/Blinky.srcs/sources_1/imports/verilog/reset_conditioner_1.v".
+    Found 4-bit register for signal <M_stage_q>.
+    Summary:
+	inferred   4 D-type flip-flop(s).
+Unit <reset_conditioner_1> synthesized.
+
+Synthesizing Unit <counter_2>.
+    Related source file is "C:/Users/TABLET0006/Box Sync/SUTD/ComputationStructures/Mojo/Mojo-Examples/Blinky/work/planAhead/Blinky/Blinky.srcs/sources_1/imports/verilog/counter_2.v".
+    Found 31-bit register for signal <M_ctr_q>.
+    Found 31-bit adder for signal <M_ctr_d> created at line 35.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  31 D-type flip-flop(s).
+Unit <counter_2> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 31-bit adder                                          : 1
+# Registers                                            : 2
+ 31-bit register                                       : 1
+ 4-bit register                                        : 1
+# Tristates                                            : 6
+ 1-bit tristate buffer                                 : 6
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <counter_2>.
+The following registers are absorbed into counter <M_ctr_q>: 1 register on signal <M_ctr_q>.
+Unit <counter_2> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 1
+ 31-bit up counter                                     : 1
+# Registers                                            : 4
+ Flip-Flops                                            : 4
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <mojo_top_0> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 0.
+
+Final Macro Processing ...
+
+Processing Unit <mojo_top_0> :
+INFO:Xst:741 - HDL ADVISOR - A 4-bit shift register was found for signal <reset_cond/M_stage_q_3> and currently occupies 4 logic cells (2 slices). Removing the set/reset logic would take advantage of SRL32 (and derived) primitives and reduce this to 1 logic cells (1 slices). Evaluate if the set/reset can be removed for this simple shift register. The majority of simple pipeline structures do not need to be set/reset operationally.
+Unit <mojo_top_0> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 35
+ Flip-Flops                                            : 35
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : mojo_top_0.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 98
+#      GND                         : 3
+#      INV                         : 2
+#      LUT1                        : 30
+#      MUXCY                       : 30
+#      VCC                         : 2
+#      XORCY                       : 31
+# FlipFlops/Latches                : 35
+#      FDR                         : 31
+#      FDS                         : 4
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 51
+#      IBUF                        : 1
+#      OBUF                        : 44
+#      OBUFT                       : 6
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9tqg144-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              35  out of  11440     0%  
+ Number of Slice LUTs:                   32  out of   5720     0%  
+    Number used as Logic:                32  out of   5720     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:     36
+   Number with an unused Flip Flop:       1  out of     36     2%  
+   Number with an unused LUT:             4  out of     36    11%  
+   Number of fully used LUT-FF pairs:    31  out of     36    86%  
+   Number of unique control sets:         2
+
+IO Utilization: 
+ Number of IOs:                          87
+ Number of bonded IOBs:                  52  out of    102    50%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 35    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 2.630ns (Maximum Frequency: 380.192MHz)
+   Minimum input arrival time before clock: 3.526ns
+   Maximum output required time after clock: 4.162ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 2.630ns (frequency: 380.192MHz)
+  Total number of paths / destination ports: 530 / 65
+-------------------------------------------------------------------------
+Delay:               2.630ns (Levels of Logic = 32)
+  Source:            slowclock/M_ctr_q_0 (FF)
+  Destination:       slowclock/M_ctr_q_30 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: slowclock/M_ctr_q_0 to slowclock/M_ctr_q_30
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              1   0.525   0.681  M_ctr_q_0 (M_ctr_q_0)
+     INV:I->O              1   0.255   0.000  Mcount_M_ctr_q_lut<0>_INV_0 (Mcount_M_ctr_q_lut<0>)
+     MUXCY:S->O            1   0.215   0.000  Mcount_M_ctr_q_cy<0> (Mcount_M_ctr_q_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<1> (Mcount_M_ctr_q_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<2> (Mcount_M_ctr_q_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<3> (Mcount_M_ctr_q_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<4> (Mcount_M_ctr_q_cy<4>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<5> (Mcount_M_ctr_q_cy<5>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<6> (Mcount_M_ctr_q_cy<6>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<7> (Mcount_M_ctr_q_cy<7>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<8> (Mcount_M_ctr_q_cy<8>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<9> (Mcount_M_ctr_q_cy<9>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<10> (Mcount_M_ctr_q_cy<10>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<11> (Mcount_M_ctr_q_cy<11>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<12> (Mcount_M_ctr_q_cy<12>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<13> (Mcount_M_ctr_q_cy<13>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<14> (Mcount_M_ctr_q_cy<14>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<15> (Mcount_M_ctr_q_cy<15>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<16> (Mcount_M_ctr_q_cy<16>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<17> (Mcount_M_ctr_q_cy<17>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<18> (Mcount_M_ctr_q_cy<18>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<19> (Mcount_M_ctr_q_cy<19>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<20> (Mcount_M_ctr_q_cy<20>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<21> (Mcount_M_ctr_q_cy<21>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<22> (Mcount_M_ctr_q_cy<22>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<23> (Mcount_M_ctr_q_cy<23>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<24> (Mcount_M_ctr_q_cy<24>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<25> (Mcount_M_ctr_q_cy<25>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<26> (Mcount_M_ctr_q_cy<26>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<27> (Mcount_M_ctr_q_cy<27>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_M_ctr_q_cy<28> (Mcount_M_ctr_q_cy<28>)
+     MUXCY:CI->O           0   0.023   0.000  Mcount_M_ctr_q_cy<29> (Mcount_M_ctr_q_cy<29>)
+     XORCY:CI->O           1   0.206   0.000  Mcount_M_ctr_q_xor<30> (Result<30>)
+     FDR:D                     0.074          M_ctr_q_30
+    ----------------------------------------
+    Total                      2.630ns (1.949ns logic, 0.681ns route)
+                                       (74.1% logic, 25.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 4 / 4
+-------------------------------------------------------------------------
+Offset:              3.526ns (Levels of Logic = 3)
+  Source:            rst_n (PAD)
+  Destination:       reset_cond/M_stage_q_3 (FF)
+  Destination Clock: clk rising
+
+  Data Path: rst_n to reset_cond/M_stage_q_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.328   0.681  rst_n_IBUF (rst_n_IBUF)
+     INV:I->O              4   0.255   0.803  M_reset_cond_in1_INV_0 (M_reset_cond_in)
+     begin scope: 'reset_cond:in'
+     FDS:S                     0.459          M_stage_q_0
+    ----------------------------------------
+    Total                      3.526ns (2.042ns logic, 1.484ns route)
+                                       (57.9% logic, 42.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.162ns (Levels of Logic = 2)
+  Source:            slowclock/M_ctr_q_30 (FF)
+  Destination:       io_led<0> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: slowclock/M_ctr_q_30 to io_led<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              2   0.525   0.725  M_ctr_q_30 (M_ctr_q_30)
+     end scope: 'slowclock:value<0>'
+     OBUF:I->O                 2.912          io_led_0_OBUF (io_led<0>)
+    ----------------------------------------
+    Total                      4.162ns (3.437ns logic, 0.725ns route)
+                                       (82.6% logic, 17.4% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    2.630|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.87 secs
+ 
+--> 
+
+Total memory usage is 290872 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    8 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+
