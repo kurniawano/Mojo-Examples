@@ -1,0 +1,91 @@
+module checktest (
+    input clk,  // clock
+    input rst,  // reset
+    output out[16],
+    output debug[8]
+  ) {
+  
+  .clk(clk){
+    .rst(rst){
+      
+      dff slowclk;
+    }
+    
+  }
+  sig sclk;
+  .clk(sclk){
+    fsm loadcheck = {INIT, S1, S2, S3, END};
+  }
+  checkplace check(.clk(clk), .rst(rst));
+  const ORALUFN = 6b011110;
+  const ANDALUFN = 6b011000;
+  const AALUFN = 6b011010;
+  
+  always {
+    slowclk.d = ~slowclk.q;
+    sclk = slowclk.q;
+    check.p1en = 0;
+    check.p2en = 0;
+    check.alufn = 0;
+    check.user = 9b0;
+    
+    debug = check.p1[7:0];
+    
+    out = check.aluout;
+    check.user = 9b000000010;
+    
+    case(loadcheck.q){
+      loadcheck.INIT: 
+        check.psel = 0;
+        check.asel = 0;
+        check.p1en = 0;
+        check.p2en = 0;
+        check.alufn = AALUFN;
+        loadcheck.d = loadcheck.S1;
+        
+      loadcheck.S1:
+        check.psel = 0;
+        check.asel = 0;
+        check.alufn = ANDALUFN;
+        
+        if (check.aluout ==0){
+          loadcheck.d = loadcheck.S2;
+        } else {
+          loadcheck.d = loadcheck.END;
+        } 
+        
+      loadcheck.S2:
+        check.psel = 1;
+        check.asel = 0;
+        check.alufn = ANDALUFN;
+        
+        if (check.aluout == 0){
+          loadcheck.d = loadcheck.S3;
+        } else{
+          loadcheck.d = loadcheck.END;
+        }
+        
+        
+      loadcheck.S3:
+        check.psel = 1;
+        check.asel = 0;
+        check.alufn = ORALUFN;
+        check.p2en = 1;
+        loadcheck.d = loadcheck.END;
+        
+      loadcheck.END:
+        check.psel = bx;
+        check.asel = 2;
+        check.p2en = 0;
+        check.p1en = 0;
+        check.alufn = AALUFN;
+      default:
+        check.user = 0;
+        check.psel = 0;
+        check.asel = 0;
+        check.p1en = 0;
+        check.p2en = 0; 
+        check.alufn = AALUFN;
+    }
+  }
+}
